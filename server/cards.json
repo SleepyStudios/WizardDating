@@ -1,0 +1,152 @@
+[
+  {
+    "Name": "Master of Disguises",
+    "Text": "On Play: Transform a random card in your hand into another random card",
+    "OnPlay": "TransformCardInHand"
+  },
+  {
+    "Name": "Persistent Troll",
+    "Text": "On Play: Add a copy of this card to your hand",
+    "OnPlay": "AddDuplicate"
+  },
+  {
+    "Name": "Last Laugh Larry",
+    "Text": "On Play: Discard a random card in your hand",
+    "OnPlay": "DiscardCard"
+  },
+  {
+    "Name": "Twins",
+    "Text": "On Pickup: Add a copy of this card to your hand",
+    "OnPickup": "AddDuplicateTwins"
+  },
+  {
+    "Name": "Ultimatum Ulrich",
+    "Text": "On Pickup: Discard a random card from your hand",
+    "OnPickup": "DiscardCard"
+  },
+  {
+    "Name": "Wannabe Wizard",
+    "Text": "On Pickup: Transform a random card in your hand into another random card",
+    "OnPickup": "TransformCardInHand"
+  },
+  {
+    "Name": "Never-ending Nathan",
+    "Text": "On Pickup: Shuffle a copy of this card into the global deck",
+    "OnPickup": "ShuffleIntoDeck"
+  },
+  {
+    "Name": "Shaky Sorceror",
+    "Text": "On Play: Transform a random card in the global deck into another random card",
+    "OnPlay": "TransformRandomCardInDeck"
+  },
+  {
+    "Name": "The King",
+    "Text": "On Play: Transform a random copy of this card in the global deck into another random card",
+    "OnPlay": "TransformDuplicateInDeck"
+  },
+  {
+    "Name": "Neglected Shapeshifter",
+    "Text": "On Swipe: Transform this card into another random card",
+    "OnSwipe": "TransformCardInDeck"
+  },
+  {
+    "Name": "Jealous Jane",
+    "Text": "On Swipe: Discard a random card from your hand",
+    "OnSwipe": "DiscardCard"    
+  },
+  {
+    "Name": "Wicked Witch",
+    "Text": "On Swipe: Transform a random card in your hand into another random card",
+    "OnSwipe": "TransformCardInHand"    
+  },
+  {
+    "Name": "Vengeful Vicky",
+    "Text": "On Swipe: Add a copy of this card to your hand",
+    "OnSwipe": "AddDuplicate"    
+  },
+  {
+    "Name": "Gracious Gamer",
+    "Text": "On Play: If your hand contains no duplicates, transform every card in your hand into another random card",
+    "OnPlay": "HighlanderTransform"
+  },
+  {
+    "Name": "Harry the Hoarder",
+    "Text": "On Swipe: Shuffle a copy of your hand into the global deck",
+    "OnSwipe": "ShuffleHandIntoDeck"
+  },
+  {
+    "Name": "Jim'll Fix It",
+    "Text": "On Pickup: Add three random cards to the bottom of the global deck",
+    "OnPickup": "AddThreeToDeck"
+  },
+  {
+    "Name": "Double Trouble Lyle",
+    "Text": "On Pickup: If your hand contains no duplicates, add a copy of this card to your hand",
+    "OnPickup": "HighlanderDuplicate"
+  },
+  {
+    "Name": "Shady Dealer",
+    "Text": "On Play: Add a random card to your hand",
+    "OnPlay": "AddRandomCardToHand"
+  },
+  {
+    "Name": "The Professor",
+    "Text": "On Discard: Transform every card in your hand into another random card",
+    "OnDiscard": "TransformHand" 
+  },
+  {
+    "Name": "Nathan's Big Brother",
+    "Text": "On Play: Shuffle a copy of this card into the global deck",
+    "OnPlay": "ShuffleIntoDeck"
+  },
+  {
+    "Name": "Postcard",
+    "Text": "On Swipe: Add a random card to your hand",
+    "OnSwipe": "AddRandomCardToHand"
+  },
+  {
+    "Name": "Garry the Ghoul",
+    "Text": "On Discard: Shuffle a copy of this card into the global deck",
+    "OnDiscard": "ShuffleIntoDeck"
+  },
+  {
+    "Name": "Mysterious Phoenix",
+    "Text": "On Discard: Shuffle a random card into the global deck",
+    "OnDiscard": "ShuffleRandomIntoDeck"
+  },
+  {
+    "Name": "Shiro the Sumo",
+    "Text": "On Discard: Add random cards to your hand until your hand is full",
+    "OnDiscard": "RefillHand"
+  }, 
+  {
+    "Name": "Silly Sally",
+    "Text": "On Discard: Transform a random card in your hand into another random card",
+    "OnDiscard": "TransformCardInHand"
+  },
+  {
+    "Name": "Pandemonium",
+    "Text": "On Swipe: Discard another random card in your hand and add a copy of this card to your hand",
+    "OnSwipe": "DiscardAndReplace"
+  },
+  {
+    "Name": "Reload",
+    "Text": "On Play: Discard another random card in your hand and add a random card to your hand",
+    "OnPlay": "DiscardAndReplaceRandom"
+  }, 
+  {
+    "Name": "Alice the Alien",
+    "Text": "On Discard: Duplicate a random card in your hand",
+    "OnDiscard": "DuplicateRandomCard"
+  },
+  {
+    "Name": "Spotlight Suzie",
+    "Text": "On Swipe: Discard any duplicate cards in your hand",
+    "OnSwipe": "DiscardDuplicates"
+  },
+  {
+    "Name": "Goody Two Shoes Gwen",
+    "Text": "On Swipe: Add a random card to the global deck for each unique card in your hand",
+    "OnSwipe": "ShuffleForUniquesTotal"
+  }
+]

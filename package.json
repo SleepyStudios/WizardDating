@@ -1,0 +1,34 @@
+{
+  "name": "phaser-multiplayer-base",
+  "version": "1.0.0",
+  "description": "Phaser multiplayer base",
+  "main": "server.js",
+  "scripts": {
+    "start": "concurrently 'nodemon server.js --exec babel-node --presets env' 'webpack --progress'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sekaru/phaser-multiplayer-base"
+  },
+  "author": "Sleepy Studios",
+  "license": "ISC",
+  "homepage": "https://github.com/sekaru/phaser-multiplayer-base",
+  "dependencies": {
+    "express": "^4.15.3",
+    "lodash": "^4.17.4",
+    "socket.io": "^2.0.1",
+    "uuid": "^3.2.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-register": "^6.24.1",
+    "concurrently": "^3.5.1",
+    "html-webpack-plugin": "^2.30.1",
+    "nodemon": "^1.11.0",
+    "uglifyjs-webpack-plugin": "^1.1.5",
+    "webpack": "^3.10.0"
+  }
+}
