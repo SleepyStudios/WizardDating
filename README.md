@@ -5,7 +5,7 @@ An online match-three social CCG game made for Ludum Dare 41 (Combine two incomp
 
 Swipe right (right arrow key) to pickup cards
 
-Swipe left (left arrow key) to ignore cards.
+Swipe left (left arrow key) to ignore cards
 
 #### Mechanics
 All cards are pulled and contribute to a global deck that can be manipulated by all players. The game features four major mechanics with the 30 playable cards:
@@ -17,7 +17,7 @@ All cards are pulled and contribute to a global deck that can be manipulated by 
 
 ![Screenshot1](https://i.imgur.com/VqiCvRb.jpg)
 
-To score points, you must **match three of the same card in your hand**.
+To score points, you have to **match three of the same card in your hand**.
 
 ![Screenshot2](https://i.imgur.com/IlCkQUQ.jpg)
 
