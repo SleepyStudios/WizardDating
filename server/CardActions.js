@@ -50,12 +50,13 @@ export const DiscardCard = (game, socket, card) => {
   if(hand.length===0) return
 
   let pos = _.random(0, hand.length-1)
-  let discarded = hand[pos]
+  let discarded = _.cloneDeep(hand[pos])
+  hand.splice(pos, 1)
+  
   socket.emit('discard', discarded)
 
   if(discarded.OnDiscard) eval(discarded.OnDiscard)(game, socket, discarded)
 
-  hand.splice(pos, 1)
   socket.emit('hand', socket.player.hand)
 }
 
@@ -100,7 +101,7 @@ export const HighlanderTransform = (game, socket, card) => {
     names.push(handCard.Name)
   })
 
-  if(names.length !== new Set(names).size) return;
+  if(names.length !== new Set(names).size) return
 
   let len = hand.length
   for(let i=0; i<len; i++) {
@@ -145,7 +146,7 @@ export const HighlanderDuplicate = (game, socket, card) => {
     names.push(handCard.Name)
   })
 
-  if(names.length !== new Set(names).size) return;
+  if(names.length !== new Set(names).size) return
 
   let newCard = _.cloneDeep(card)
   newCard.id = uuid()
@@ -230,11 +231,12 @@ export const DiscardAndReplace = (game, socket, card) => {
   if(hand.length<1) return
   
   let pos = _.random(0, hand.length-1)
+  let discarded = _.cloneDeep(hand[pos])
+  hand.splice(pos, 1)  
 
-  socket.emit('discard', hand[pos])
-  if(hand[pos].OnDiscard) eval(hand[pos].OnDiscard)(game, socket, hand[pos])
+  socket.emit('discard', discarded)
+  if(discarded.OnDiscard) eval(discarded.OnDiscard)(game, socket, discarded)
 
-  hand.splice(pos, 1)
   hand.push(card)
 
   socket.emit('hand', socket.player.hand)  
@@ -271,7 +273,7 @@ export const DuplicateRandomCard = (game, socket, card) => {
   let newCard = _.cloneDeep(hand[pos])
   newCard.id = uuid()
 
-  if(!game.willHandBeFull(socket)) {
+  if(game.willHandBeFull(socket)) {
     socket.emit('discard', newCard)
     if(newCard.OnDiscard) eval(newCard.OnDiscard)(game, socket, newCard)
   } else {

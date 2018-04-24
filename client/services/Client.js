@@ -95,7 +95,7 @@ class Client {
     this.socket.on('decksize', size => {
       if(!game.deckSize) {
         let style = { font: 'bold 18px Arial', fill: '#FF5864', align: 'left' }
-        game.deckSize = game.add.text(30, 30, "Global deck size: " + size + " cards", style);
+        game.deckSize = game.add.text(30, 30, "Global deck size: " + size + " cards", style)
       } else {
         game.deckSize.text = "Global deck size: " + size + " cards"
       }
@@ -104,7 +104,7 @@ class Client {
     this.socket.on('playercount', size => {
       if(!game.playerCount) {
         let style = { font: 'bold 18px Arial', fill: '#FD297B', align: 'left' }
-        game.playerCount = game.add.text(30, 110, size + " " + (size==1 ? "player" : "players") + " online", style);
+        game.playerCount = game.add.text(30, 110, size + " " + (size==1 ? "player" : "players") + " online", style)
       } else {
         game.playerCount.text = size + " " + (size==1 ? "player" : "players") + " online"
       }
@@ -115,14 +115,14 @@ class Client {
     })
 
     this.socket.on('score', args => {
-      this.addText(args.name + (args.name===this.name ? " (you!)" : "") + " scored! Their new score is: " + args.score, "#FFBF00")
+      this.addText(args.name + (args.name===this.name ? " (you)" : "") + " scored! Their new score is: " + args.score, "#FFBF00")
 
       if(args.name===this.name) {
         this.addText("You've been dealt a new hand", "FFBF00")
         game.score.play()
 
         game.hand.forEach(card => {
-          let newCard = this.makeCard(card.x, card.y, card.data)
+          let newCard = this.makeCard(card.x, game.world.height - 150, card.data)
           
           newCard.isTweening = true
           game.add.tween(newCard).to({ x: deckX, y: deckY, alpha: 0 }, 300, Phaser.Easing.Linear.None, true)    
@@ -141,7 +141,7 @@ class Client {
     this.socket.on('leaderboard', text => {
       if(!game.leaderboard) {
         let style = { font: 'bold 18px Arial', fill: '#FF5864', align: 'left' }
-        game.leaderboard = game.add.text(30, 190, text, style);
+        game.leaderboard = game.add.text(30, 190, text, style)
       } else {
         game.leaderboard.text = text
       }
@@ -166,7 +166,7 @@ class Client {
 
     // name
     let nameStyle = { font: 'bold 20px Arial', fill: '#FF5864', align: 'center', wordWrap: true, wordWrapWidth: 180 }
-    let name = this.game.add.text(0, 0, data.Name, nameStyle);
+    let name = this.game.add.text(0, 0, data.Name, nameStyle)
     name.x = Math.round(card.width/2 - name.width/2)
     name.y = 50
     name.lineSpacing = -6
@@ -185,16 +185,16 @@ class Client {
     switch(data.Text.split(' ')[1]) {
       case "Play:":
         text.addColor('#000', 8)
-        break;
+        break
       case "Pickup:":
         text.addColor('#000', 10)
-        break;
+        break
       case "Swipe:":
         text.addColor('#000', 9)
-        break;
+        break
       case "Discard:":
         text.addColor('#000', 11)
-        break;
+        break
     }
 
     if(data.Text.indexOf('[Discarded]')!=-1) text.addColor('#FF5864', data.Text.indexOf('[Discarded]'))

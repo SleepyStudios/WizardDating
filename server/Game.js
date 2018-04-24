@@ -7,9 +7,8 @@ class Game {
   constructor(app) {
     this.io = require('socket.io')(app)    
     this.MAX_HAND_SIZE = 5
-
-    this.lastPlayerID = 0
     this.deck = this.genDeck()
+    this.leaderboard = []
 
     new ConnectionEvent(this) 
   }
@@ -55,8 +54,10 @@ class Game {
       let filteredList = _.filter(socket.player.hand, {Name: card.Name})
       if(filteredList.length===3) {
         socket.player.score++
+        this.updateLeaderboard(socket)
+
         this.io.sockets.emit('score', {name: socket.player.name, score: socket.player.score})
-        this.io.sockets.emit('leaderboard', this.leaderboard())                    
+        this.io.sockets.emit('leaderboard', this.getLeaderboard())                    
         
         socket.player.hand = this.genHand()
         socket.emit('hand', socket.player.hand)
@@ -77,18 +78,27 @@ class Game {
     return this.io.engine.clientsCount
   }
 
-  leaderboard() {
-    let players = []
-    Object.keys(this.io.sockets.connected).forEach(socketID => {
-      let player = this.io.sockets.connected[socketID].player
-      if(player) players.push(player)
-    })
+  updateLeaderboard(socket) {
+    let player = socket.player
+    let leaderboardPlayer = _.find(this.leaderboard, {id: player.id})
 
-    players = _.reverse(_.sortBy(players, 'score'))
+    if(leaderboardPlayer) {
+      leaderboardPlayer.score++
+    } else {
+      this.leaderboard.push({
+        id: player.id,
+        name: player.name,
+        score: 0
+      })
+    }
+  }
+
+  getLeaderboard() {
+    let arr = _.reverse(_.sortBy(this.leaderboard, 'score'))
     
     let text = "LEADERBOARD \n"
-    for(let i=0; i<players.length; i++) {
-      text+=players[i].name + ": " + players[i].score + "\n"
+    for(let i=0; i<arr.length; i++) {
+      text+=arr[i].name + ": " + arr[i].score + "\n"
     }
     return text
   }

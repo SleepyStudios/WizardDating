@@ -7,7 +7,6 @@ Swipe right (right arrow key) to pickup cards
 
 Swipe left (left arrow key) to ignore cards.
 
-
 #### Mechanics
 All cards are pulled and contribute to a global deck that can be manipulated by all players. The game features four major mechanics with the 30 playable cards:
 

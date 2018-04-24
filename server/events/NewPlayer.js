@@ -10,7 +10,7 @@ class NewPlayerEvent {
   constructor(game, socket) {
     socket.on('newplayer', name => {
       socket.player = {
-        id: ++game.lastPlayerID,
+        id: uuid(),
         hand: game.genHand(),
         name: name,
         score: 0
@@ -22,8 +22,10 @@ class NewPlayerEvent {
       socket.emit('hand', socket.player.hand)
       socket.emit('deck', game.deck[0]) 
       socket.emit('decksize', game.deck.length)
-      game.io.sockets.emit('playercount', game.playercount())     
-      game.io.sockets.emit('leaderboard', game.leaderboard())            
+      game.io.sockets.emit('playercount', game.playercount())    
+      
+      game.updateLeaderboard(socket)
+      game.io.sockets.emit('leaderboard', game.getLeaderboard())            
 
       new DisconnectEvent(game, socket)
       new PlayEvent(game, socket)
