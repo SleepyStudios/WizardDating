@@ -41,6 +41,24 @@ class Menu extends Phaser.State {
     let logo = this.add.image(0, 0, 'logo')
     logo.x = this.game.width/2 - logo.width/2
     logo.y = this.game.height/2 - logo.height/2 - 100
+
+    // left
+    let style = { font: 'bold 20px Arial', fill: '#222', align: 'left' }    
+    let l = this.add.text(40, this.game.height-60, "Swipe left (left arrow key) to ignore a card", style)
+    l.addColor('#FF5864', 12)
+    l.addColor('#222', 26)
+
+    // right
+    let r = this.add.text(40, this.game.height-60, "Swipe right (right arrow key) to pickup a card", style)
+    r.x = this.game.width - r.width - r.x
+    r.addColor('#FF5864', 13)
+    r.addColor('#222', 28)
+
+    // middle
+    let m = this.add.text(0, this.game.height-60, "Match three cards in your hand to score", style)
+    m.x = this.game.width/2 - m.width/2
+    m.addColor('#FF5864', 6)
+    m.addColor('#222', 12)
   }
   
   joinGame() {
