@@ -103,7 +103,7 @@ class Client {
 
     this.socket.on('playercount', size => {
       if(!game.playerCount) {
-        let style = { font: 'bold 18px Arial', fill: '#FD297B', align: 'left' }
+        let style = { font: 'bold 18px Arial', fill: '#FF5864', align: 'left' }
         game.playerCount = game.add.text(30, 110, size + " " + (size==1 ? "player" : "players") + " online", style)
       } else {
         game.playerCount.text = size + " " + (size==1 ? "player" : "players") + " online"
@@ -142,6 +142,8 @@ class Client {
       if(!game.leaderboard) {
         let style = { font: 'bold 18px Arial', fill: '#FF5864', align: 'left' }
         game.leaderboard = game.add.text(30, 190, text, style)
+        game.leaderboard.addColor('#FD297B', 0)
+        game.leaderboard.addColor('#FF5864', 11)
       } else {
         game.leaderboard.text = text
       }
@@ -217,7 +219,7 @@ class Client {
 
   addText(text, colour) {
     this.game.text.forEach(t => {
-      t.y+=75
+      t.y+=80
     })
 
     let style = { font: 'bold 18px Arial', fill: colour, align: 'left' }

@@ -96,7 +96,7 @@ class Game {
   getLeaderboard() {
     let arr = _.reverse(_.sortBy(this.leaderboard, 'score'))
     
-    let text = "LEADERBOARD \n"
+    let text = "Leaderboard \n"
     for(let i=0; i<arr.length; i++) {
       text+=arr[i].name + ": " + arr[i].score + "\n"
     }

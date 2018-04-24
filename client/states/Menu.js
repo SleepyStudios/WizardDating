@@ -69,9 +69,7 @@ class Menu extends Phaser.State {
 
   update() {
     if(this.input.keyboard.isDown(Phaser.KeyCode.ENTER)) { 
-      if(this.name.value.length>0) {
-        this.state.start('Game', true, false, {name: this.name.value})
-      }
+      this.joinGame()
     }
   }
 }
