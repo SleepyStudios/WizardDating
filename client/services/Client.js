@@ -118,7 +118,7 @@ class Client {
       this.addText(args.name + (args.name===this.name ? " (you)" : "") + " scored! Their new score is: " + args.score, "#FFBF00")
 
       if(args.name===this.name) {
-        this.addText("You've been dealt a new hand", "FFBF00")
+        this.addText("You've been dealt a new hand", "#FFBF00")
         game.score.play()
 
         game.hand.forEach(card => {
