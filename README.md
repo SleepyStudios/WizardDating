@@ -32,5 +32,5 @@ To score points, you must **match three of the same card in your hand**.
 - camposonoro - Score sfx
 - Kevin Macleod - Music (Klockworx)
 
-### Build with
+### Built with
 https://github.com/sekaru/phaser-multiplayer-base
