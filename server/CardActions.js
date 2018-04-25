@@ -175,6 +175,26 @@ export const AddRandomCardToHand = (game, socket, card) => {
   socket.emit('hand', socket.player.hand)
 }
 
+export const AddDiscardCard = (game, socket, card) => {
+  let hand = socket.player.hand
+  let newCard = _.cloneDeep(cards[_.random(0, cards.length-1)]) 
+
+  while(!newCard.OnDiscard) {
+    newCard = _.cloneDeep(cards[_.random(0, cards.length-1)])
+  }
+
+  newCard.id = uuid()
+
+  if(!game.isHandFull(socket)) {
+    hand.push(newCard)
+  } else {
+    socket.emit('discard', newCard)
+    eval(newCard.OnDiscard)(game, socket, newCard)
+  }
+
+  socket.emit('hand', socket.player.hand)
+}
+
 export const DiscardHand = (game, socket, card) => {
   let hand = socket.player.hand
 

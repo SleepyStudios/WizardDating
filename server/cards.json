@@ -5,9 +5,9 @@
     "OnPlay": "TransformCardInHand"
   },
   {
-    "Name": "Persistent Troll",
-    "Text": "On Play: Add a copy of this card to your hand",
-    "OnPlay": "AddDuplicate"
+    "Name": "Negative Nancy",
+    "Text": "On Play: Add a random card with a discard effect to your hand",
+    "OnPlay": "AddDiscardCard"
   },
   {
     "Name": "Last Laugh Larry",
@@ -30,7 +30,7 @@
     "OnPickup": "TransformCardInHand"
   },
   {
-    "Name": "Never-ending Nathan",
+    "Name": "Everlasting Ethan",
     "Text": "On Pickup: Shuffle a copy of this card into the global deck",
     "OnPickup": "ShuffleIntoDeck"
   },
@@ -95,7 +95,7 @@
     "OnDiscard": "TransformHand" 
   },
   {
-    "Name": "Nathan's Big Brother",
+    "Name": "Ethan's Big Brother",
     "Text": "On Play: Shuffle a copy of this card into the global deck",
     "OnPlay": "ShuffleIntoDeck"
   },

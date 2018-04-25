@@ -148,6 +148,10 @@ class Client {
         game.leaderboard.text = text
       }
     })
+
+    this.socket.on('newdeck', () => {
+      this.addText("The global deck was reset", "#222")      
+    })
   }
 
   requestJoin() {

@@ -104,6 +104,11 @@ class Game {
   }
 
   updateDeckSize() {
+    if(this.deck.length>=100) {
+      this.deck = this.genDeck()
+      this.io.sockets.emit('newdeck', this.deck.length)                              
+    }
+
     this.io.sockets.emit('decksize', this.deck.length)                        
   }
 }

@@ -50,7 +50,7 @@ class Game extends Phaser.State {
       if(this.deck==null) return
       let oldCard = this.client.makeCard(this.deck.x, this.deck.y, this.deck.data)
 
-      this.add.tween(oldCard).to({ x: -1000, alpha: 0 }, 500, Phaser.Easing.Linear.None, true)
+      this.add.tween(oldCard).to({ x: -500, y: this.deck.y+200, angle: -80, alpha: 0 }, 500, Phaser.Easing.Linear.None, true)   
       this.swipe.play()
 
       this.client.swipe(this.deck.data.id)
