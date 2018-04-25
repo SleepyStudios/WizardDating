@@ -52,7 +52,7 @@ class Game {
     for(let i=0; i<socket.player.hand.length; i++) {
       let card = socket.player.hand[i]
       let filteredList = _.filter(socket.player.hand, {Name: card.Name})
-      if(filteredList.length===3) {
+      if(filteredList.length>=3) {
         socket.player.score++
         this.updateLeaderboard(socket)
 
