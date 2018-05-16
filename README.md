@@ -1,8 +1,6 @@
 # Dating for the Modern Wizard
 An online match-three social CCG game made for Ludum Dare 41 (Combine two incompatible genres).
 
-#### Play here: http://sleepystudios.net:8081 (jam), http://sleepystudios.net:8082 (postjam)
-
 ### Gameplay
 
 Swipe right (right arrow key) to pickup cards
@@ -22,6 +20,11 @@ All cards are pulled and contribute to a global deck that can be manipulated by 
 To score points, you have to **match three of the same card in your hand**.
 
 ![Screenshot2](https://i.imgur.com/IlCkQUQ.jpg)
+
+### Setup/Run guide
+Clone it and run ```npm i```
+
+To play it, run ```npm start```
 
 ### External credits
 
