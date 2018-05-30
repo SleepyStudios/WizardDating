@@ -17,7 +17,7 @@ export const TransformCardInHand = (game, socket, card) => {
 
 export const AddDuplicate = (game, socket, card) => {
   let hand = socket.player.hand
-  let newCard = _.cloneDeep(_.find(cards, {Name: card.Name})) 
+  let newCard = _.cloneDeep(card) 
   newCard.id = uuid()
 
   if(!game.isHandFull(socket)) {
